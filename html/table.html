@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표 양식 만들기</title>
+    <style>
+        td>button:nth-child(1) {
+            background-color: rgb(101, 101, 179);
+            border-top-color: rgb(95, 95, 160);
+            border-left-color: rgb(129, 129, 211);
+            border-bottom-color: cornflowerblue;
+            border-right-color: rgb(70, 88, 121);
+        }
+
+        td>button:nth-child(2) {
+            background-color: rgb(199, 26, 14);
+            border-top-color: rgb(160, 124, 95);
+            border-left-color: rgb(211, 162, 129);
+            border-bottom-color: rgb(237, 116, 100);
+            border-right-color: rgb(121, 86, 70);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- table -->
+    <table border='1'>
+        <thead>
+
+            <tr>
+                <td><input type='checkbox'></td>
+                <th>[상품번호]상품명</th>
+                <th>판매가격</th>
+                <th>공급가격</th>
+                <th>수정/삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>[3]럭셔리 머플러 세트 니트GR</td>
+                <td>10,000</td>
+                <td>1,000</td>
+                <td><button>수정</button><button>삭제</button></td>
+            </tr>
+            <tr>
+
+                <td><input type='checkbox'></td>
+                <td>[1]더블유닷WX8MU5840</td>
+                <td>84,000</td>
+                <td>1,000</td>
+                <td><button>수정</button><button>삭제</button></td>
+            </tr>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td> [2]더블유닷WX8MU5840 </td>
+                <td>72,000</td>
+                <td>1,000</td>
+                <td><button>수정</button><button>삭제</button></td>
+            </tr>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td> [12]올리브데올리브WOW8AE3380 </td>
+                <td>118,000</td>
+                <td>1,000</td>
+                <td><button>수정</button><button>삭제</button></td>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
