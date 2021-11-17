@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/layout.html</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid green;
+            border-radius: 10px;
+
+        }
+
+        body {
+            border: 2px dashed gray;
+            width: 85%;
+            margin: 10px auto;
+            border-radius: 10px;
+            height: 90vh;
+
+        }
+
+        header {
+            padding: 20px 50px;
+            background-color: rgb(237, 247, 95);
+            margin: 10px;
+            border-radius: 10px;
+
+        }
+
+        nav {
+            float: left;
+            background-color: rgb(162, 233, 162);
+            width: 24%;
+            margin: 10px 1%;
+            padding: 30px 30px 400px;
+
+        }
+
+        section {
+            float: left;
+            background-color: rgb(162, 233, 162);
+            width: 48%;
+            margin: 10px 1% 10px 0;
+        }
+
+        section>header,
+        section>article,
+        section>footer {
+            background-color: indianred;
+            margin: 10px 20px;
+            border-radius: 10px;
+        }
+
+        section>article {
+            padding: 91px 20px;
+
+        }
+
+        section>footer {
+            padding: 20px 20px;
+
+        }
+
+        section>header {
+            padding: 18px 20px;
+        }
+
+        aside {
+            float: left;
+            background-color: rgb(162, 233, 162);
+            width: 24%;
+            margin: 10px 1% 10px 0;
+            padding: 30px 30px 400px;
+
+        }
+
+        aside+footer {
+            float: left;
+            width: 96%;
+            padding: 20px 50px;
+            background-color: rgb(237, 247, 95);
+            margin: 10px;
+            border-radius: 10px;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- (p.115)semantic구조 만들기 -->
+
+    <header>&lt;header&gt;</header>
+
+    <nav>&lt;nav&gt;</nav>
+
+    <section>&lt;section&gt;
+        <header>&lt;header&gt;
+
+        </header>
+        <article>&lt;article&gt;
+
+        </article>
+        <footer>&lt;footer&gt;
+
+        </footer>
+    </section>
+
+    <aside>&lt;aside&gt;</aside>
+
+    <footer>&lt;footer&gt;</footer>
+
+</body>
+
+</html>

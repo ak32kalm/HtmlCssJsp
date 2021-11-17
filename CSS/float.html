@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/float.html</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            /* 컨텐트를 계산하는데 패딩하고 보더까지 계산해서 박스영역 */
+            margin: 0;
+        }
+        div {
+            border: 2px solid red;
+            height: 100px
+        }
+
+        div.header {
+            background-color: lawngreen;
+        }
+
+        div.left {
+            background-color: lightgreen;
+            /* display: inline-block; */
+            width: 33.3%;
+            float: left;
+            /* 플롯에선 디스블레이 못씀 */
+        }
+        div.center{
+            background-color: lightgreen;
+            float: left;
+            width: 33.4%;
+        }
+
+        div.right {
+            background-color: lime;
+            /* display: inline-block; */
+            width: 33.3%;
+            float: left;
+        }
+        div.footer {
+            background-color: rgb(25, 109, 25);
+            float: left;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        &lt;header&gt;
+    </div>
+
+    <div class="left">
+            <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </ul>
+    </div>
+    <div class="center"></div>
+
+    <div class="right">
+        <img src="../image/covid.PNG" alt="">
+    </div>
+    <div class="footer"></div>
+
+</body>
+
+</html>

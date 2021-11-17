@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/combinator.html</title>
+    <style>
+        div li {
+            background-color: yellowgreen;
+
+        }
+
+        /* element> element : 자손 element element : 후손. */
+
+
+        .image>ul,
+        .image>ol {
+            color: red;
+        }
+
+        div.other>p~span {
+            color: blue;
+        }
+
+        p,
+        span,
+        h4 {
+            background-color: yellowgreen;
+        }
+
+        li:nth-child(2n+1) {
+
+            background-color: violet;
+        }
+        .other>span:nth-child(3){
+            background-color: tomato;
+        }
+
+        .other>span:nth-of-type(2){
+            background-color: turquoise;
+        }
+        .other>h4:nth-last-of-type(1){
+            background-color: wheat;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 조합선택자 -->
+    <div class="container">
+        <div class="other">
+            <p>apple</p>
+            <h4>banana</h4>
+            <span>cherry</span>
+            <p>apple1</p>
+            <h4>banana1</h4>
+            <span>cherry1</span>
+        </div>
+        <div class="image">
+            <ul>
+                <li>apple</li>
+                <li>banana</li>
+                <li>cherry</li>
+            </ul>
+        </div>
+        <div class="content">
+            <ol>
+                <li>apple</li>
+                <li>banana</li>
+                <li>cherry</li>
+            </ol>
+        </div>
+
+    </div>
+</body>
+
+</html>
