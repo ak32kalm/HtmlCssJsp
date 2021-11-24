@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/grid.html</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            /* margin: 0;
+            padding : 0;
+             내가 원하는 영역에만 여백을 주고싶을때 설정 margin과 padding  */
+        }
+
+        div.wrapper {
+            display: grid;
+            /* grid-template-columns: 200px 100px 200px; */
+
+            /* 세로로 영역(칼럼)을 몇개를 200px로 나누겠다 */
+            /* grid-template-columns: 2fr 1fr 2fr; */
+            /* 전체넓이에서 2를 2번쨰 칼럼은 1 3번쨰는 2만큼 차지하겠다 */
+
+            grid-template-columns: repeat(4, 1fr);
+            /* 4부분으로 나뉘어지는 데 1fr로 반복해서 나누겠다 */
+
+            /* grid-template-rows: 100px 200px; */
+            /* 가로를 100px로 하겠따 */
+
+            /* grid-template-rows: 30vh 60vh; */
+            /* view를 기준으로 30퍼센트 60퍼센트 */
+
+            /* grid-template-rows: repeat(4, 100px); */
+            grid-template-rows: 100px 200px 100px;
+        }
+
+        div.item {
+            border: 2px solid gray;
+        }
+
+        div.item1 {
+            grid-column: 1/5;
+            /* 1~5까지 영역을 차지하겠다 */
+        }
+
+        div.item2 {
+            grid-column: 1/2;
+            /* 1~2까지 영역을 차지하겠다 */
+            grid-row: 2/3;
+            /* 2~3까지 row영역을 차지하겠다 */
+        }
+
+        div.item3 {
+            grid-column: 2/4;
+            grid-row: 2/3;
+        }
+
+        div.item4 {
+            grid-column: 4/5;
+            grid-row: 2/3;
+        }
+
+        div.item5 {
+            grid-column: 1/5;
+        }
+
+        div.wrapper>p {
+            grid-column: 3/4;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="item item1">item1</div>
+        <div class="item item2">item2
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+                <li>menu4</li>
+            </ul>
+        </div>
+        <div class="item item3">item3
+            <p>contents</p>
+        </div>
+        <div class="item item4">item4
+            <p>aside</p>
+        </div>
+        <div class="item item5">item5
+            <p>footer</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split.html</title>
+    <!-- 타자연습 게임
+    기능 1. 시간제한 
+2.입력한 값과 생성된 값 -->
+    <style>
+        #show {
+            width: 500px;
+            height: 230px;
+            border: 2px solid gray;
+        }
+
+        .item {
+            display: inline-block;
+            width: 110px;
+            background-color: yellow;
+            border: 1px solid blue;
+            margin: 1px;
+
+        }
+
+        .clear {
+
+            display: inline-block;
+            width: 110px;
+            background-color: white;
+            color: white;
+            border: 1px solid blue;
+            margin: 1px;
+
+        }
+
+        #timer {
+            display: inline-block;
+            width: 50px;
+            background-color: rgb(97, 98, 88);
+            color: white;
+            text-align: right;
+            padding-right: 3px;
+
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+
+            var str =
+                //이거 한 줄로 치느냐 마느냐 다르게 출력된다
+                `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, vero modi. Quae vero quo nihil laudantium amet suscipit quas modi incidunt. Non debitis quisquam nam dolor eum. Soluta, sed odio.`;
+            var strAry = str.split(' '); //공백을 기준으로 배열을 만들자
+
+            var show = document.getElementById('show');
+            strAry.forEach(item => { //추가하는 코드
+                var div = document.createElement('div');
+                div.setAttribute('class', 'item');
+
+                div.textContent = item;
+                //위 한 줄을 밑 node 기준으로 코드작성한 것 
+                //var textNode = document.createTextNode(item); //TextNode메소드
+                // div.appendChild(textNode);
+
+
+                show.appendChild(div);
+            });
+
+            //시간변경. //setInterval() 매개값 2개 1: 콜백함수 2: 밀리세컨드(1초) 
+            var remainTime = 1100;
+            document.getElementById('timer').textContent = remainTime; //
+            var interval = setInterval(function () {
+                document.getElementById('timer').textContent = --remainTime; //> 200부터 -1초
+                //if(remainTime == 0) { //remainTime이 0이 됐다면
+                if (!remainTime) { //0이 false값임 이런게 있다 
+                    var items = document.querySelectorAll('.item');
+
+                    if (!remainTime) { //if(items.length == 0) {
+                        alert('success');
+                    } else {
+                        alert('fall')
+                    }
+                    clearInterval(interval); //0초가 되면 더이상 실행안하겠습니다 ..다 지워버리면 success가 못지우면 fail이 뜸
+
+                }
+            }, 1000);
+
+
+        });
+
+
+        function removeItem(e) {
+            console.log('onchange') //onchange(이벤트) 언제일어날까? 칸에 입력하고 엔터 누르면
+            var val = e.target.value;
+            var items = document.querySelectorAll('.item'); //item이라는 클래스 명으로 선택해 오겠다
+
+            items.forEach(item => {
+                if (item.textContent == val) { //item의 들어있는 값과 사용자가 입력한 값 : val 
+                    item.setAttribute('class', 'clear');
+
+
+                }
+            });
+            e.target.value = '';
+        }
+
+        function addTime(e) { //입력한 값이 없으면 들어감 있으면 안들어감
+
+            var val = e.target.value;
+            var items = document.querySelectorAll('.item'); //클래스 이름이 item인 녀석 다 가져와 서 items에 넣어
+
+
+            //존재하는지 체크 1.
+            for (var i = 0; i < items.length; i++) {
+                console.log(val, items[i].textContent)
+                if (items[i].textContent == val) {
+                    alert('이미 있습니다.')
+                    e.target.value = '';
+                    return; // return : 함수 실행 중단 (밑에 코드가 있어도 function을 끝내겠다)
+
+                }
+            }
+
+            //존재하는지 체크 2. 배열을 쓰고싶으면
+            // var itemAry = [];
+            // for (var i =0; i< items.length; i++) {
+            //     itemAry.push(items[i].textContent); // 배열이 아닌 items를 배열타입에  값을 다 넣음(복사 타입변경)
+            // }
+            // if(itemAry.indexOf(val) !=-1){ //!=-1 : 이미 있는 값입니다
+            //     alert('존재');
+            //     e.target.value = '';
+            //     return;
+            // }
+
+
+
+            //추가
+            var div = document.createElement('div');
+            div.setAttribute('class', 'item');
+            div.textContent = val;
+            show.appendChild(div);
+            e.target.value = '';
+
+
+
+        }
+
+        // setTimeout(() => { //해당되는 시간 만큼 지연했다가 안의 코드를 한 번 실행하고 끝
+        //     window.location.href = 'https://www.daum.net';
+        // }, 3000) //3초뒤
+        
+    </script>
+</head>
+
+<body>
+    <div id="show"></div>
+    입력 : <input type="text" onchange="addTime(event)">
+    <p id="timer">0</p>
+</body>
+
+</html>
+
+<!-- 입력 : <input type="text" onchange="remoItemve(event)">  더하기~ onkeyup은 한글자 들어갈때마다 onchange가 일어남 -->

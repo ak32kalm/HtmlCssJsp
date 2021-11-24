@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript.generator.html</title>
+    <script>
+        var data = `            
+[{"id":1,"first_name":"Husein","last_name":"Bulmer","email":"hbulmer0@squarespace.com","gender":"Female","salary":6941},
+{"id":2,"first_name":"Raf","last_name":"Luc","email":"rluc1@amazonaws.com","gender":"Female","salary":13121},
+{"id":3,"first_name":"Garvy","last_name":"Vassie","email":"gvassie2@zimbio.com","gender":"Female","salary":10877},
+{"id":4,"first_name":"Courtney","last_name":"Delahunt","email":"cdelahunt3@nsw.gov.au","gender":"Female","salary":7863},
+{"id":5,"first_name":"Rafe","last_name":"Grunnell","email":"rgrunnell4@sbwire.com","gender":"Male","salary":7303},
+{"id":6,"first_name":"Daniel","last_name":"Spaven","email":"dspaven5@artisteer.com","gender":"Female","salary":13020},
+{"id":7,"first_name":"Dennie","last_name":"Bagshawe","email":"dbagshawe6@is.gd","gender":"Female","salary":12912},
+{"id":8,"first_name":"Yoko","last_name":"Pochon","email":"ypochon7@sbwire.com","gender":"Female","salary":12806},
+{"id":9,"first_name":"Natalee","last_name":"Frood","email":"nfrood8@theguardian.com","gender":"Male","salary":13130},
+{"id":10,"first_name":"Dalis","last_name":"Stredder","email":"dstredder9@51.la","gender":"Male","salary":7048}]
+`;
+
+
+        var employees = JSON.parse(data); //JSON문자열을 jsp에서 쓸 수 있도록 obj 타입으로 변경할 떄.
+        var genderEmp = [];
+
+        var fields = ['id', 'first_name', 'last_name', 'email', 'gender', 'salary'];
+        window.addEventListener('DOMContentLoaded', onLoadFnc);
+
+        function onLoadFnc() {
+            // 표형식으로 리스트 출력.
+            var table = document.createElement('table');
+            table.setAttribute('border', '1');
+            table.setAttribute('id', 'tbl');
+            var thead = makeHead();
+            var tbody = makeBody(employees);
+            table.appendChild(thead);
+            table.appendChild(tbody);
+
+            //table을 만들고 show에다가 붙여넣기
+            var parent = document.getElementById('show');
+            parent.appendChild(table);
+
+            // radio 버튼에 이벤트 등록.
+            var radios = document.querySelectorAll('div>input[type="radio"]'); //div에 input에 radio 불러올게
+            console.log(radios);
+            for (var radio of radios) {
+                radio.onchange = onChangeFunc;
+            }
+
+            //버튼에 조회 기능 추가.?? 뭔말이고 어케하는거냐//
+           
+
+        } //end onLoadFnc
+
+        //onchange 이벤트의 콜백함수
+        function onChangeFunc() {
+            //change 이벤트가 발생할떄마다
+            console.log(this);
+            var gender = this.value;
+            genderEmp = employees.filter(item => item.gender == gender);
+            console.log(genderEmp);
+            document.getElementById('tbd').remove();
+            document.getElementById('tbl').appendChild(makeBody(genderEmp));
+
+        }
+
+        function makeBody(ary) {
+            var tbody = document.createElement('tbody');
+            tbody.setAttribute('id', 'tbd');
+            ary.forEach(item => {
+                var tr = makeTr(item);
+                tbody.appendChild(tr);
+            });
+            return tbody;
+        }
+
+
+        function makeTr(employee) {
+            var tr = document.createElement('tr');
+            fields.forEach(field => { //필드에 들어있는 배열 하나하나를 
+                var td = document.createElement('td');
+                td.textContent = employee[field];
+                tr.appendChild(td);
+            });
+            return tr;
+        }
+
+
+
+        function makeHead() { //tr>td.td.td. 구조
+            var thead = document.createElement('thead');
+            var tr = document.createElement('tr');
+
+            //for (var field of fields) {
+            fields.forEach(item => {
+                var th = document.createElement('th');
+                th.textContent = item;
+                tr.appendChild(th);
+            });
+            //}
+
+
+            thead.appendChild(tr);
+            return thead;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        남자 <input type="radio" name="gender" value="Male">
+        여자 <input type="radio" name="gender" value="Female">
+        <input type="number" name="" id="searchSalary" value="salary">
+        <button id='searchBtn'>조회</button >
+
+
+    </div>
+    <div id="show">
+        <!-- <script src="generator.js"></script> -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+/* mystyle.css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+    height: 20vh;
+    /* background-image: url(../image/background.PNG);
+    background-color: rgb(213, 233, 126); */
+    /* background-size: 30%;
+    background-repeat: repeat; */
+    background: linear-gradient(to bottom, green, white 50%, rgb(122, 122, 122));
+    /* 오른쪽으로 그라데이션 넣는 함수 시작색 그린 흰색 50%는 생성되는 지점 */
+
+}
+
+header>div.home {
+    float: left;
+    width: 10vw;
+}
+
+header img {
+    width: 6vw;
+    height: 15vh;
+    margin: 15px 10px 5px 20px;
+    border-radius: 50%;
+}
+
+header>div.welcome {
+    float: left;
+    width: 30vw;
+    margin-top: 5vh;
+    margin-left: 15vw;
+}
+
+header h2 {
+    font-size: 35px;
+    color: rgb(85, 85, 145);
+    font-weight: bold;
+}
+
+
+
+header>div.login {
+    float: right;
+    width: 30vw;
+    margin: 8vh 0 8vh 0;
+    /* margin으로 가운데 정렬 */
+}
+
+/* submit 타입은 뺴고 */
+header>div.login>input:not([type="submit"]) {
+    height: 30px;
+    width: 100px;
+}
+
+/* input의 타입 submit만 
+주의 input과 [] 사이 공간 띄우면 안됌 */
+header form>input[type="submit"] {
+    background-color: rgb(35, 115, 117);
+    color: rgb(40, 40, 116);
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    position: relative;
+    top: 3px;
+}
+
+nav {
+    float: left;
+    width: 20%;
+    margin: 1%;
+    height: 60vh;
+    border-right: gray solid 2px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    width: 100px;
+    height: 35px;
+    margin-bottom: 5px;
+    background-color: rgb(211, 141, 141);
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3px;
+}
+
+/* nav밑 li에 커서 얹어놓을떄 스타일 */
+nav li:hover {
+    background-color: grey;
+    color: white;
+}
+
+/* 처음엔 안보이게 */
+nav li div.sub {
+    display: none;
+}
+
+
+/* 커서가 올라가면 하위메뉴 보이게 */
+nav li:hover div.sub {
+    display: block;
+    color: green;
+}
+
+nav li>div.sub {
+    position: relative;
+    left: 105px;
+    top: -20px;
+}
+
+nav li>div>p {
+    width: 100px;
+    height: 35px;
+    background-color: rgb(236, 188, 188);
+    margin-bottom: 3px;
+    padding: 4px;
+}
+
+
+
+section {
+    float: left;
+    width: 50%;
+    height: 60vh;
+    margin: 1%;
+    border-right: gray solid 2px;
+}
+
+section>div.contents>div.item {
+    float: left;
+    width: 160px;
+    margin: 3px;
+    border: 1px solid red;
+}
+
+div.contents>div.item>img {
+    width: 150px;
+    height: 210px;
+    /* 실제이미지 크기가 반영이 되지 않게끔 heigt를 지정해줌 */
+}
+
+section footer {
+    float: left;
+    width: 100%;
+}
+
+aside {
+    float: left;
+    width: 24%;
+    margin: 1%;
+    /* width끼리 94% margin으로 좌우 각1% 씩 총 6 % */
+
+}
+
+#ido1{
+    display: none;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 50%;
+    padding: 10px 20px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 7px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/basic.html</title>
+    <link rel="stylesheet" href="calendar.css">
+    <!-- <script src="basic.js"></script> -->
+
+    <script>
+        var fruits = ['Apple', 'Banana', 'Cherry']
+        window.addEventListener('DOMContentLoaded', function () { //method
+
+            var show = document.getElementById('show'); //얘는 딱 하나만 가져옴
+            console.log(show.textContent);
+
+            var shows = document.getElementsByTagName('div'); // div태그를 가져오겠습니다
+            console.log(shows[0]
+                .textContent) // shows는 타입이 Collection이라 undefined  (배열 처럼 여러건을 다 넣기 위한 타입임) 그래서 순번을 정해줘야함
+
+
+
+            var cls = document.getElementsByClassName('show'); //클래스 네임으로 불러오기
+            console.log(cls[0].textContent); //얘도 순번을 정해줘야 함 클래스 네임이 같은 게 2개니까
+
+            var selector = document.querySelectorAll('div.show'); //  div 태그에 있는 클래스명이 show라는 애들을 들고 오겠습니다
+            console.log(selector);
+            selector[0].textContent = '사과'; // 변경, 추가, 삭제 가능  텍스트 값을 바꿀 수 있음 'Apple을 사과로 변경'
+
+            var li = document.createElement('li'); 
+            li.textContent = 'Melon';
+
+
+            //ol밑에 넣겠다 
+            var ol = document.querySelector('ol');
+            ol.appendChild(li);
+
+            var divTag = document.createElement('div');
+            divTag.setAttribute('id','last');
+            divTag.textContent = 'Last';
+            ol.appendChild(divTag);
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="show">Hello</div>
+    <div class="show">Hello2</div>
+    <div class="show">Hello3</div>
+    <p class="show">Hello4</p>
+
+
+    <ul>
+        <li id="apple">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="Cherry">Cherru</li>
+    </ul>
+
+    <ol>
+        <li id="apple">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="Cherry">Cherru</li>
+    </ol>
+
+    
+    <!-- <div>
+        <div id="last">Last</div>
+    </div> -->
+
+
+</body>
+
+</html>

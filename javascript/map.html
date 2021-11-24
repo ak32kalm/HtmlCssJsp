@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map.html</title>
+    
+    <script src="data.js"></script>
+
+    <script>
+        
+        // //filter 새로운 배열을 생성
+         window.addEventListener('DOMContentLoaded', function () {
+            var filterAry = dataAry.filter((item, ind, ary) => {
+                return item.salary > 10000;
+            });
+
+            //map() 같은 요소를 다른 타입으로 ? 새로운 배열을 생성
+            var mapAry = filterAry.map((item, ind, ary) => {
+                var obj = {};
+                obj.name = item.first_name + ',' + item.last_name;
+                obj.sal = item.salary;
+                //return item.first_name + ',' + item.last_name; //이름만 담고있는 배열이 생성됨
+                return obj;
+            });
+            console.log(mapAry);
+
+            //forEach() 새로운 배열을 생성하지 않음 reuturn 없음
+            var div = document.getElementById('show');
+            mapAry.forEach((item, ind, ary) => {  //filterAry
+                console.log(item, ind, ary);
+                var p = document.createElement('p');
+                p.textContent = item.name; //first_name
+                div.appendChild(p);
+            });
+
+            console.clear();
+
+            filterAry = dataAry.filter(item => {
+                return item.salary > 10000;
+            }).map(item => { //or //filterAry.map();
+                return item.salary;
+            })
+            .join(','); //or //var str = filterAry.join(','); //배열요소를 string 타입으로 바꿔주는 거
+            console.log(filterAry); //str
+
+            //console.clear();
+           var newAry =  filterAry.split(','); // 문자열 ,를 기준으로 새로운 배열을 생성
+           console.log(newAry);
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="show">
+
+    </div>
+    <!-- //script 젤 밑으로 , -->
+</body>
+
+</html>
